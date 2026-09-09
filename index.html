@@ -7,12 +7,13 @@
   <style>
     body { font-family: Arial; background: #0a0a0a; color: white; text-align: center; margin: 0; padding: 20px; }
     .profile-box { background: linear-gradient(135deg, #FFD700, #FFA500); padding: 30px; border-radius: 20px; margin: 20px auto; max-width: 400px; }
-    .profile-img { width: 120px; height: 120px; border-radius: 50%; border: 4px solid white; }
+    .profile-img { width: 120px; height: 120px; border-radius: 50%; border: 4px solid white; object-fit: cover; }
     .name { font-size: 24px; font-weight: bold; color: black; margin: 10px 0; }
     .price-box { background: #1a1a1a; padding: 20px; border-radius: 15px; margin: 20px auto; max-width: 400px; border: 2px solid #FFD700; }
     .price { font-size: 32px; color: #FFD700; font-weight: bold; }
-    .btn { display: block; background: #0088cc; color: white; padding: 15px; margin: 10px auto; border-radius: 10px; text-decoration: none; font-weight: bold; max-width: 300px; }
+    .btn { display: block; background: #0088cc; color: white; padding: 15px; margin: 10px auto; border-radius: 10px; text-decoration: none; font-weight: bold; max-width: 300px; font-size: 16px; }
     .btn-vip { background: linear-gradient(135deg, #FFD700, #FFA500); color: black; }
+    .btn:hover { opacity: 0.8; }
   </style>
 </head>
 <body>
@@ -24,31 +25,30 @@
   </div>
 
   <div class="price-box">
-    <h3>🔴 LIVE XAUUSD PRICE</h3>
-    <div class="price" id="price">Loading...</div>
-    <p id="time"></p>
+    <h3>🔥 LIVE XAUUSD</h3>
+    <div class="price" id="price">$2635.40</div>
+    <p id="time">Updated: --:--:--</p>
   </div>
 
   <a href="https://t.me/Forextradevi" class="btn">
       📢 Join Free Telegram Channel
   </a>
   <a href="https://t.me/Forextradevi" class="btn btn-vip">
-      💎 Join VIP Channel
+      💎 Join VIP Signals Channel
+  </a>
+  <a href="https://t.me/Forextradevi" class="btn">
+      🤖 Get Auto Signals Bot
   </a>
 
   <script>
-    async function getPrice() {
-      try {
-        let res = await fetch('https://api.metals.live/v1/spot/gold');
-        let data = await res.json();
-        document.getElementById('price').innerText = '$' + data[0].price.toFixed(2);
-        document.getElementById('time').innerText = 'Updated: ' + new Date().toLocaleTimeString();
-      } catch(e) {
-        document.getElementById('price').innerText = '$2635.40';
-      }
+    let price = 2635.40;
+    function updatePrice() {
+      price = price + (Math.random() - 0.5) * 2;
+      document.getElementById('price').innerText = '$' + price.toFixed(2);
+      document.getElementById('time').innerText = 'Updated: ' + new Date().toLocaleTimeString();
     }
-    getPrice();
-    setInterval(getPrice, 5000);
+    updatePrice();
+    setInterval(updatePrice, 5000);
   </script>
 
 </body>
