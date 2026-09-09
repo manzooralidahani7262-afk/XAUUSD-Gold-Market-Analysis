@@ -3,41 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Manzoor Ali Dahani - XAUUSD Gold Signals</title>
+  <title>Manzoor Ali Dahani - XAUUSD Signals</title>
   <style>
-    body {font-family: Arial; background: #0a0a0a; color: white; margin: 0; padding: 20px; text-align: center;}
-    .profile-box {background: linear-gradient(135deg, #FFD700, #FF8C00); padding: 25px; border-radius: 20px; margin-bottom: 20px;}
-    .profile-img {width: 120px; height: 120px; border-radius: 50%; border: 4px solid white;}
-    .name {font-size: 24px; margin: 15px 0 5px 0; font-weight: bold;}
-    .signal-box {background: #1a1a1a; padding: 20px; border-radius: 15px; border: 2px solid #FFD700; margin-bottom: 20px;}
-    .price {font-size: 32px; color: #FFD700; font-weight: bold;}
-    .btn {display: block; background: #FFD700; color: black; padding: 15px; margin: 10px 0; border-radius: 10px; text-decoration: none; font-weight: bold;}
+    body { font-family: Arial; background: #0a0a0a; color: white; text-align: center; margin: 0; padding: 20px; }
+    .profile-box { background: linear-gradient(135deg, #FFD700, #FFA500); padding: 30px; border-radius: 20px; margin: 20px auto; max-width: 400px; }
+    .profile-img { width: 120px; height: 120px; border-radius: 50%; border: 4px solid white; }
+    .name { font-size: 24px; font-weight: bold; color: black; margin: 10px 0; }
+    .price-box { background: #1a1a1a; padding: 20px; border-radius: 15px; margin: 20px auto; max-width: 400px; border: 2px solid #FFD700; }
+    .price { font-size: 32px; color: #FFD700; font-weight: bold; }
+    .btn { display: block; background: #0088cc; color: white; padding: 15px; margin: 10px auto; border-radius: 10px; text-decoration: none; font-weight: bold; max-width: 300px; }
+    .btn-vip { background: linear-gradient(135deg, #FFD700, #FFA500); color: black; }
   </style>
 </head>
 <body>
 
-  <!-- پروفائل -->
   <div class="profile-box">
-    <img src="آپ_کی_تصویر_کا_لنک_یہاں_لگائیں" class="profile-img">
-    <h1 class="name">Manzoor Ali Dahani</h1>
+    <img src="https://i.imgur.com/8JQ9zK2.jpg" class="profile-img">
+    <h2 class="name">Manzoor Ali Dahani</h2>
     <p>📈 XAUUSD Gold Analyst | Daily Signals</p>
   </div>
 
-  <!-- لائیو پرائس -->
-  <div class="signal-box">
-    <h2>🔥 LIVE XAUUSD</h2>
-    <p class="price" id="price">$2635.40</p>
-    <p>Updated: <span id="time"></span></p>
+  <div class="price-box">
+    <h3>🔴 LIVE XAUUSD PRICE</h3>
+    <div class="price" id="price">Loading...</div>
+    <p id="time"></p>
   </div>
 
-  <!-- آپ کے سارے لنکس -->
-  <a href="https://t.me/DanielFx_33" class="btn">📢 Join Telegram Channel</a>
-  <a href="https://t.me/xauusd_gold_signals72_bot" class="btn">🤖 Get Auto Signals Bot</a>
-  <a href="https://t.me/DanielFx_33" class="btn">💬 Contact Admin</a>
+  <a href="https://t.me/Forextradevi" class="btn">
+      📢 Join Free Telegram Channel
+  </a>
+  <a href="https://t.me/Forextradevi" class="btn btn-vip">
+      💎 Join VIP Channel
+  </a>
 
   <script>
-    document.getElementById('time').innerText = new Date().toLocaleTimeString();
-    setInterval(() => {document.getElementById('time').innerText = new Date().toLocaleTimeString();}, 1000);
+    async function getPrice() {
+      try {
+        let res = await fetch('https://api.metals.live/v1/spot/gold');
+        let data = await res.json();
+        document.getElementById('price').innerText = '$' + data[0].price.toFixed(2);
+        document.getElementById('time').innerText = 'Updated: ' + new Date().toLocaleTimeString();
+      } catch(e) {
+        document.getElementById('price').innerText = '$2635.40';
+      }
+    }
+    getPrice();
+    setInterval(getPrice, 5000);
   </script>
 
 </body>
