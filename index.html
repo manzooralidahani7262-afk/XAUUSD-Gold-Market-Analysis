@@ -6,6 +6,7 @@
 
   <title>Gold Trading Signals</title>
 
+  <!-- Telegram Mini App -->
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
   <style>
@@ -47,7 +48,8 @@
 
       border-radius: 28px;
 
-      box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+      box-shadow:
+        0 20px 60px rgba(0,0,0,0.45);
     }
 
     .logo {
@@ -62,11 +64,12 @@
 
       border-radius: 50%;
 
-      background: linear-gradient(
-        145deg,
-        #ffe066,
-        #d99600
-      );
+      background:
+        linear-gradient(
+          145deg,
+          #ffe066,
+          #d99600
+        );
 
       border: 5px solid white;
 
@@ -81,7 +84,6 @@
 
     h1 {
       margin: 0;
-
       font-size: 28px;
       font-weight: 800;
     }
@@ -104,11 +106,9 @@
 
       margin: 15px 0;
 
-      border: none;
+      border: 0;
 
       border-radius: 15px;
-
-      text-decoration: none;
 
       font-size: 19px;
       font-weight: 800;
@@ -117,21 +117,23 @@
     }
 
     .free {
-      background: linear-gradient(
-        135deg,
-        #22c55e,
-        #16a34a
-      );
+      background:
+        linear-gradient(
+          135deg,
+          #22c55e,
+          #16a34a
+        );
 
       color: white;
     }
 
     .vip {
-      background: linear-gradient(
-        135deg,
-        #ffd84d,
-        #f59e0b
-      );
+      background:
+        linear-gradient(
+          135deg,
+          #ffd84d,
+          #f59e0b
+        );
 
       color: #111827;
     }
@@ -159,20 +161,20 @@
     </h1>
 
     <div class="subtitle">
-      Daily XAUUSD Gold Signals & Market Updates
+      Daily XAUUSD Gold Signals &amp; Market Updates
     </div>
 
     <!-- FREE SIGNALS -->
     <button
       class="button free"
-      onclick="joinChannel()">
+      onclick="openChannel()">
       JOIN FREE SIGNALS
     </button>
 
     <!-- VIP -->
     <button
       class="button vip"
-      onclick="joinChannel()">
+      onclick="openChannel()">
       JOIN VIP
     </button>
 
@@ -182,11 +184,14 @@
 
   </div>
 
+
   <script>
+
     const CHANNEL_LINK =
       "https://t.me/+sm8JVKn-y7plMmZk";
 
-    function joinChannel() {
+
+    function openChannel() {
 
       if (
         window.Telegram &&
@@ -204,15 +209,21 @@
           CHANNEL_LINK;
 
       }
+
     }
+
 
     if (
       window.Telegram &&
       Telegram.WebApp
     ) {
+
       Telegram.WebApp.ready();
+
       Telegram.WebApp.expand();
+
     }
+
   </script>
 
 </body>
