@@ -4,199 +4,162 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Gold Trading Signals</title>
+  <title>Gold Market Analysis</title>
 
-  <!-- Telegram Mini App -->
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
   <style>
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      margin: 0;
       min-height: 100vh;
-      padding: 20px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
       font-family: Arial, sans-serif;
-
       background:
-        radial-gradient(
-          circle at top,
-          #244b70 0%,
-          #0b1628 55%,
-          #050914 100%
-        );
-
+        radial-gradient(circle at top, #3b2b00 0%, #111111 45%, #050505 100%);
       color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
     }
 
-    .card {
+    .container {
       width: 100%;
       max-width: 430px;
-
-      padding: 32px 24px;
-
       text-align: center;
-
-      background: #182a40;
-
-      border-radius: 28px;
-
-      box-shadow:
-        0 20px 60px rgba(0,0,0,0.45);
     }
 
     .logo {
       width: 105px;
       height: 105px;
-
-      margin: 0 auto 18px;
+      border-radius: 50%;
+      margin: 0 auto 20px;
 
       display: flex;
       align-items: center;
       justify-content: center;
 
-      border-radius: 50%;
-
-      background:
-        linear-gradient(
-          145deg,
-          #ffe066,
-          #d99600
-        );
-
-      border: 5px solid white;
-
-      color: #111827;
-
-      font-size: 27px;
-      font-weight: 900;
+      background: linear-gradient(145deg, #ffd700, #a87500);
+      border: 4px solid #f5c542;
 
       box-shadow:
-        0 8px 30px rgba(255,190,0,0.30);
+        0 0 25px rgba(255, 215, 0, 0.45),
+        inset 0 0 15px rgba(255,255,255,0.25);
+
+      font-size: 42px;
+      font-weight: 900;
+      color: #111;
     }
 
     h1 {
-      margin: 0;
       font-size: 28px;
       font-weight: 800;
+      margin-bottom: 8px;
+      color: #ffd700;
+      letter-spacing: 1px;
     }
 
     .subtitle {
-      margin: 10px 0 25px;
-
-      color: #cbd5e1;
-
-      font-size: 16px;
+      font-size: 15px;
+      color: #d8d8d8;
+      margin-bottom: 30px;
       line-height: 1.5;
     }
 
+    .card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,215,0,0.25);
+      border-radius: 20px;
+      padding: 25px 20px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.45);
+    }
+
     .button {
-      display: block;
-
       width: 100%;
+      border: none;
+      border-radius: 14px;
+      padding: 17px 15px;
+      margin-top: 15px;
 
-      padding: 18px;
-
-      margin: 15px 0;
-
-      border: 0;
-
-      border-radius: 15px;
-
-      font-size: 19px;
+      font-size: 17px;
       font-weight: 800;
+      letter-spacing: 0.5px;
 
       cursor: pointer;
+      transition: transform 0.15s ease;
+    }
+
+    .button:active {
+      transform: scale(0.97);
     }
 
     .free {
-      background:
-        linear-gradient(
-          135deg,
-          #22c55e,
-          #16a34a
-        );
-
-      color: white;
+      background: linear-gradient(135deg, #ffd700, #c99400);
+      color: #111;
     }
 
     .vip {
-      background:
-        linear-gradient(
-          135deg,
-          #ffd84d,
-          #f59e0b
-        );
-
-      color: #111827;
+      background: linear-gradient(135deg, #ffffff, #cfcfcf);
+      color: #111;
     }
 
-    .note {
-      margin-top: 18px;
-
-      color: #94a3b8;
-
+    .footer {
+      margin-top: 22px;
       font-size: 12px;
+      color: #999;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="card">
+  <div class="container">
 
-    <div class="logo">
-      XAU
-    </div>
+    <div class="logo">XAU</div>
 
-    <h1>
-      Gold Trading Signals
-    </h1>
+    <h1>GOLD MARKET ANALYSIS</h1>
 
     <div class="subtitle">
-      Daily XAUUSD Gold Signals &amp; Market Updates
+      XAUUSD Gold Signals & Market Analysis
     </div>
 
-    <!-- FREE SIGNALS -->
-    <button
-      class="button free"
-      onclick="openChannel()">
-      JOIN FREE SIGNALS
-    </button>
+    <div class="card">
 
-    <!-- VIP -->
-    <button
-      class="button vip"
-      onclick="openChannel()">
-      JOIN VIP
-    </button>
+      <button
+        class="button free"
+        onclick="joinChannel()">
+        🟢 JOIN FREE SIGNALS
+      </button>
 
-    <div class="note">
-      Join our official Telegram channel
+      <button
+        class="button vip"
+        onclick="joinChannel()">
+        ⭐ JOIN VIP
+      </button>
+
+    </div>
+
+    <div class="footer">
+      XAUUSD • Gold Trading • Market Analysis
     </div>
 
   </div>
-
 
   <script>
 
     const CHANNEL_LINK =
       "https://t.me/+sm8JVKn-y7plMmZk";
 
-
-    function openChannel() {
+    function joinChannel() {
 
       if (
         window.Telegram &&
-        Telegram.WebApp &&
-        Telegram.WebApp.openTelegramLink
+        Telegram.WebApp
       ) {
 
         Telegram.WebApp.openTelegramLink(
@@ -209,9 +172,7 @@
           CHANNEL_LINK;
 
       }
-
     }
-
 
     if (
       window.Telegram &&
@@ -221,7 +182,6 @@
       Telegram.WebApp.ready();
 
       Telegram.WebApp.expand();
-
     }
 
   </script>
