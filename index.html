@@ -4,153 +4,164 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Telegram Mini App -->
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
 <title>Green Pips Trading View</title>
 
 <style>
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html, body {
-    margin: 0;
-    min-height: 100%;
-    font-family: Arial, Helvetica, sans-serif;
-    background: #050505;
-    color: #fff;
+  margin: 0;
+  min-height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #050505;
+  color: #fff;
 }
 
 body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
 }
 
 .container {
-    width: 100%;
-    max-width: 620px;
+  width: 100%;
+  max-width: 620px;
 }
 
 .card {
-    width: 100%;
-    padding: 42px 28px 34px;
-    text-align: center;
-    background: linear-gradient(145deg, #111111, #070707);
-    border: 2px solid #ffd400;
-    border-radius: 30px;
-    box-shadow: 0 0 35px rgba(255,212,0,.18);
+  width: 100%;
+  padding: 38px 25px 30px;
+  text-align: center;
+  background: linear-gradient(145deg, #121212, #070707);
+  border: 2px solid #ffd400;
+  border-radius: 28px;
+  box-shadow: 0 0 32px rgba(255,212,0,.16);
 }
 
 .logo {
-    width: 125px;
-    height: 125px;
-    margin: 0 auto 25px;
-    border-radius: 50%;
-    background: #ffd400;
-    color: #050505;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 55px;
-    font-weight: 800;
+  width: 118px;
+  height: 118px;
+  margin: 0 auto 23px;
+  border-radius: 50%;
+  background: #ffd400;
+  color: #050505;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 52px;
+  font-weight: 800;
 }
 
 h1 {
-    margin: 0 0 12px;
-    color: #ffd400;
-    font-size: 30px;
-    line-height: 1.2;
+  margin: 0 0 10px;
+  color: #ffd400;
+  font-size: 29px;
+  line-height: 1.2;
 }
 
 .live {
-    color: #00f58b;
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 25px;
+  color: #00f58b;
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 22px;
 }
 
 .description {
-    color: #eee;
-    font-size: 19px;
-    line-height: 1.7;
-    margin-bottom: 28px;
+  color: #eee;
+  font-size: 18px;
+  line-height: 1.65;
+  margin-bottom: 26px;
 }
 
 .features {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 30px;
+  display: flex;
+  gap: 9px;
+  margin-bottom: 28px;
 }
 
 .feature {
-    flex: 1;
-    padding: 15px 8px;
-    background: #0d0d0d;
-    border: 1px solid #292929;
-    border-radius: 15px;
+  flex: 1;
+  padding: 14px 6px;
+  background: #0d0d0d;
+  border: 1px solid #292929;
+  border-radius: 14px;
 }
 
 .feature strong {
-    display: block;
-    color: #fff;
-    font-size: 17px;
+  display: block;
+  color: #fff;
+  font-size: 16px;
 }
 
 .feature span {
-    display: block;
-    color: #999;
-    font-size: 12px;
-    margin-top: 5px;
+  display: block;
+  color: #999;
+  font-size: 12px;
+  margin-top: 5px;
 }
 
-/* ONE BUTTON */
+/* ONE DIRECT CHANNEL BUTTON */
 
 .join-button {
-    display: block;
-    width: 100%;
-    padding: 20px;
-    border: none;
-    border-radius: 50px;
-    background: linear-gradient(90deg, #ffd400, #ff9800);
-    color: #050505;
-    font-size: 21px;
-    font-weight: 800;
-    cursor: pointer;
-    box-shadow: 0 8px 25px rgba(255,180,0,.20);
+  width: 100%;
+  min-height: 58px;
+  border: 0;
+  border-radius: 50px;
+  background: linear-gradient(90deg, #ffd400, #ff9800);
+  color: #050505;
+  font-size: 20px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(255,180,0,.20);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.join-button:active {
+  transform: scale(.98);
 }
 
 .footer {
-    margin-top: 24px;
-    color: #666;
-    font-size: 13px;
+  margin-top: 20px;
+  color: #666;
+  font-size: 12px;
 }
 
 @media (max-width: 480px) {
 
-    .card {
-        padding: 32px 18px 28px;
-    }
+  .card {
+    padding: 30px 17px 25px;
+  }
 
-    .logo {
-        width: 105px;
-        height: 105px;
-        font-size: 47px;
-    }
+  .logo {
+    width: 102px;
+    height: 102px;
+    font-size: 45px;
+  }
 
-    h1 {
-        font-size: 26px;
-    }
+  h1 {
+    font-size: 25px;
+  }
 
-    .description {
-        font-size: 17px;
-    }
+  .description {
+    font-size: 16px;
+  }
 
-    .join-button {
-        font-size: 19px;
-    }
+  .feature strong {
+    font-size: 14px;
+  }
+
+  .feature span {
+    font-size: 10px;
+  }
+
+  .join-button {
+    font-size: 18px;
+  }
 }
 </style>
 </head>
@@ -159,65 +170,64 @@ h1 {
 
 <div class="container">
 
-<div class="card">
+  <div class="card">
 
-<div class="logo">
-GP
-</div>
+    <div class="logo">
+      GP
+    </div>
 
-<h1>
-GREEN PIPS TRADING VIEW
-</h1>
+    <h1>
+      GREEN PIPS TRADING VIEW
+    </h1>
 
-<div class="live">
-● LIVE GOLD EXPERT
-</div>
+    <div class="live">
+      ● LIVE GOLD EXPERT
+    </div>
 
-<div class="description">
-Professional XAUUSD Gold Analysis<br>
-Daily Free Gold Signals<br>
-Clear Entry • TP • SL Levels
-</div>
+    <div class="description">
+      Professional XAUUSD Gold Analysis<br>
+      Daily Free Gold Signals<br>
+      Clear Entry • TP • SL Levels
+    </div>
 
-<div class="features">
+    <div class="features">
 
-<div class="feature">
-<strong>Daily</strong>
-<span>Gold Signals</span>
-</div>
+      <div class="feature">
+        <strong>Daily</strong>
+        <span>Gold Signals</span>
+      </div>
 
-<div class="feature">
-<strong>XAUUSD</strong>
-<span>Market Focus</span>
-</div>
+      <div class="feature">
+        <strong>XAUUSD</strong>
+        <span>Market Focus</span>
+      </div>
 
-<div class="feature">
-<strong>Clear</strong>
-<span>Trade Levels</span>
-</div>
+      <div class="feature">
+        <strong>Clear</strong>
+        <span>Trade Levels</span>
+      </div>
 
-</div>
-
-
-<!-- DIRECT TELEGRAM CHANNEL BUTTON -->
-
-<button
-class="join-button"
-type="button"
-id="joinChannel">
-
-🔥 JOIN FREE GOLD SIGNALS
-
-</button>
+    </div>
 
 
-<div class="footer">
+    <!-- ONLY ONE BUTTON -->
 
-XAUUSD | GBPUSD | BTCUSD • Official Channel
+    <button
+      class="join-button"
+      id="joinChannel"
+      type="button">
 
-</div>
+      🔥 JOIN FREE GOLD SIGNALS
 
-</div>
+    </button>
+
+
+    <div class="footer">
+      XAUUSD | GBPUSD | BTCUSD • Official Channel
+    </div>
+
+  </div>
+
 </div>
 
 
@@ -226,27 +236,27 @@ XAUUSD | GBPUSD | BTCUSD • Official Channel
 const CHANNEL_LINK =
 "https://t.me/+1sCa0ZGIIRtjNmJk";
 
-const button =
-document.getElementById("joinChannel");
 
-button.addEventListener("click", function () {
+document
+.getElementById("joinChannel")
+.addEventListener("click", function () {
 
-    if (
-        window.Telegram &&
-        window.Telegram.WebApp &&
-        typeof window.Telegram.WebApp.openTelegramLink === "function"
-    ) {
+  if (
+    window.Telegram &&
+    window.Telegram.WebApp &&
+    typeof window.Telegram.WebApp.openTelegramLink === "function"
+  ) {
 
-        Telegram.WebApp.openTelegramLink(
-            CHANNEL_LINK
-        );
+    window.Telegram.WebApp.openTelegramLink(
+      CHANNEL_LINK
+    );
 
-    } else {
+  } else {
 
-        window.location.href =
-            CHANNEL_LINK;
+    window.location.href =
+      CHANNEL_LINK;
 
-    }
+  }
 
 });
 
