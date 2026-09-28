@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- Telegram Mini App -->
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+
 <title>Green Pips Trading View</title>
 
 <style>
@@ -35,7 +38,7 @@ body {
     width: 100%;
     padding: 42px 28px 34px;
     text-align: center;
-    background: linear-gradient(145deg, #111, #070707);
+    background: linear-gradient(145deg, #111111, #070707);
     border: 2px solid #ffd400;
     border-radius: 30px;
     box-shadow: 0 0 35px rgba(255,212,0,.18);
@@ -103,18 +106,19 @@ h1 {
     margin-top: 5px;
 }
 
-/* DIRECT CHANNEL BUTTON */
+/* ONE BUTTON */
 
 .join-button {
     display: block;
     width: 100%;
     padding: 20px;
+    border: none;
     border-radius: 50px;
     background: linear-gradient(90deg, #ffd400, #ff9800);
     color: #050505;
-    text-decoration: none;
     font-size: 21px;
     font-weight: 800;
+    cursor: pointer;
     box-shadow: 0 8px 25px rgba(255,180,0,.20);
 }
 
@@ -122,6 +126,31 @@ h1 {
     margin-top: 24px;
     color: #666;
     font-size: 13px;
+}
+
+@media (max-width: 480px) {
+
+    .card {
+        padding: 32px 18px 28px;
+    }
+
+    .logo {
+        width: 105px;
+        height: 105px;
+        font-size: 47px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    .description {
+        font-size: 17px;
+    }
+
+    .join-button {
+        font-size: 19px;
+    }
 }
 </style>
 </head>
@@ -170,17 +199,16 @@ Clear Entry • TP • SL Levels
 </div>
 
 
-<!-- ONE BUTTON — DIRECT TO TELEGRAM CHANNEL -->
+<!-- DIRECT TELEGRAM CHANNEL BUTTON -->
 
-<a
+<button
 class="join-button"
-href="https://t.me/+1sCa0ZGIIRtjNmJk"
-target="_blank"
-rel="noopener">
+type="button"
+id="joinChannel">
 
 🔥 JOIN FREE GOLD SIGNALS
 
-</a>
+</button>
 
 
 <div class="footer">
@@ -190,8 +218,39 @@ XAUUSD | GBPUSD | BTCUSD • Official Channel
 </div>
 
 </div>
-
 </div>
+
+
+<script>
+
+const CHANNEL_LINK =
+"https://t.me/+1sCa0ZGIIRtjNmJk";
+
+const button =
+document.getElementById("joinChannel");
+
+button.addEventListener("click", function () {
+
+    if (
+        window.Telegram &&
+        window.Telegram.WebApp &&
+        typeof window.Telegram.WebApp.openTelegramLink === "function"
+    ) {
+
+        Telegram.WebApp.openTelegramLink(
+            CHANNEL_LINK
+        );
+
+    } else {
+
+        window.location.href =
+            CHANNEL_LINK;
+
+    }
+
+});
+
+</script>
 
 </body>
 </html>
